@@ -5,13 +5,12 @@ import { Button } from "@/components/ui/button";
 import { SAMPLE_PRODUCTS } from "@/data/products";
 import { notFound } from "next/navigation";
 
-interface ProductDetailPageProps {
-  params: {
-    id: string;
-  };
-}
-
-export default function ProductDetailPage({ params }: ProductDetailPageProps) {
+// Definición correcta para Next.js 15
+export default function ProductDetailPage({
+  params,
+}: {
+  params: { id: string };
+}) {
   const product = SAMPLE_PRODUCTS.find((p) => p.id === params.id);
 
   if (!product) {
